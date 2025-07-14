@@ -3,7 +3,7 @@ using Catalog.API.Products.GetProductsById;
 
 namespace Catalog.API.Products.GetProductsByCategory
 {
-    public record GetProductByCategoryResponse(Product Product);
+    public record GetProductByCategoryResponse(IEnumerable<Product> Products);
     public class GetProductByCategoryEndpoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)

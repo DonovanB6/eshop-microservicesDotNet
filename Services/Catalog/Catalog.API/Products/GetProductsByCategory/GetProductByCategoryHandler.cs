@@ -8,7 +8,7 @@ namespace Catalog.API.Products.GetProductsByCategory
     public record GetProductByCategoryQuery(string Category): IQuery<GetProductByCategoryResult>; 
 
     public record GetProductByCategoryResult(IEnumerable<Product> Products);
-    internal class GetProductByCategoryQueryHandler(IDocumentSession session, ILogger logger) : IQueryHandler<GetProductByCategoryQuery, GetProductByCategoryResult>
+    internal class GetProductByCategoryQueryHandler(IDocumentSession session, ILogger<GetProductByCategoryQueryHandler> logger) : IQueryHandler<GetProductByCategoryQuery, GetProductByCategoryResult>
     {
         public async Task<GetProductByCategoryResult> Handle(GetProductByCategoryQuery query, CancellationToken cancellationToken)
         {
