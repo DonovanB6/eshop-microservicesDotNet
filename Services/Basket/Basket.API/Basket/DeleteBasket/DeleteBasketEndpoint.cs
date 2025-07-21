@@ -6,14 +6,14 @@ namespace Basket.API.Basket.DeleteBasket
 {
     //public record DeleteBasketRequest(string userName);
 
-    public record DeleteBasketResponse(bool isSuccess);
+    public record DeleteBasketResponse(bool IsSuccess);
     public class DeleteBasketEndpoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapDelete("/basket/{username}", async (string userName, ISender sender) =>
+            app.MapDelete("/basket/{username}", async (string UserName, ISender sender) =>
             {
-                var result = await sender.Send(new DeleteBasketCommand(userName));
+                var result = await sender.Send(new DeleteBasketCommand(UserName));
 
                 var response = result.Adapt<DeleteBasketResponse>();
 
